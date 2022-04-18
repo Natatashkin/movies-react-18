@@ -12,7 +12,7 @@ const HomePage = () => {
     async function fetchTrends() {
       try {
         const response = await moviesAPI.getTrandingMovies();
-        setTrends([...response.results]);
+        setTrends(prevTrends => [...prevTrends, ...response.results]);
         setLoading(false);
       } catch (error) {
         console.log(error);
